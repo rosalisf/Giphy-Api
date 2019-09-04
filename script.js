@@ -1,3 +1,7 @@
+function getData() {
+  let input = $(".form-control").val();
+}
+
 $("button").on("click", function() {
   const person = $(this).attr("data-person");
   const queryURL =

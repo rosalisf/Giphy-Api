@@ -13,18 +13,35 @@
       crossorigin="anonymous"
     />
   </head>
-  <style></style>
+  <style>
+    #buttons {
+      margin-top: 15px;
+    }
+  </style>
   <body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Add an Animal or Person!</a>
+      <button
+        class="btn btn-dark"
+        id="searchgifs"
+        type="submit"
+        onclick="getData()"
+      >
+        Submit
+      </button>
+
+      <input class="form-control" type="text" placeholder="Add anything" />
+    </nav>
+
     <div id="buttons">
-      <button data-person="arnold schwarzenegger">
-        I'll be back
+      <button class="btn btn-primary" data-person="axolotl">
+        Axolotl
       </button>
-      <button data-person="michael j fox">
-        My happiness grows in direct proportion to my acceptance, and in inverse
-        proportion to my expectations.
+      <button class="btn btn-primary" data-person="michael jackson">
+        Michael Jackson
       </button>
-      <button data-person="lady gaga">
-        Po po po poker face po po poker face.
+      <button class="btn btn-primary" data-person="lady gaga">
+        Lady Gaga
       </button>
     </div>
 
