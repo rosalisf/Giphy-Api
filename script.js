@@ -1,6 +1,13 @@
-function getData() {
+$("#searchgifs").on("click", function() {
   let input = $(".form-control").val();
-}
+  console.log(input);
+
+  let newButton = $("<button>");
+  newButton.prepend(input);
+  newButton.attr("data-person", input);
+
+  newButton.attr("data-state");
+});
 
 $("button").on("click", function() {
   const person = $(this).attr("data-person");
@@ -24,6 +31,7 @@ $("button").on("click", function() {
 
       let personImage = $("<img>");
       personImage.attr("src", results[i].images.fixed_height.url);
+      personImage.attr("class", "gif");
 
       gifDiv.prepend(p);
       gifDiv.prepend(personImage);
@@ -31,4 +39,19 @@ $("button").on("click", function() {
       $("#gif-section").prepend(gifDiv);
     }
   });
+});
+
+$(".gif").click(function() {
+  let state = $(this).attr("data-state");
+  console.log(state);
+
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  }
+
+  if (state === "animate") {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
 });

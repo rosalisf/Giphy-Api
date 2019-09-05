@@ -12,21 +12,24 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Monoton|Orbitron|Poiret+One|Questrial&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     #buttons {
       margin-top: 15px;
     }
+    p {
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 12pt;
+    }
   </style>
   <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="#">Add an Animal or Person!</a>
-      <button
-        class="btn btn-dark"
-        id="searchgifs"
-        type="submit"
-        onclick="getData()"
-      >
+      <button class="btn btn-dark" id="searchgifs" type="submit">
         Submit
       </button>
 
@@ -34,8 +37,8 @@
     </nav>
 
     <div id="buttons">
-      <button class="btn btn-primary" data-person="axolotl">
-        Axolotl
+      <button class="btn btn-primary" data-person="cat">
+        Cat
       </button>
       <button class="btn btn-primary" data-person="michael jackson">
         Michael Jackson
