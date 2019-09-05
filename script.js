@@ -6,13 +6,11 @@ $("#searchgifs").on("click", function() {
   newButton.prepend(input);
   newButton.attr("class", "btn btn-outline-primary");
   newButton.attr("data-person", input);
-  newButton.attr("data-state", "animate");
 
   $("#oldbuttons").append(newButton);
 
   newButton.on("click", buttonPress);
 });
-$("button").on("click", buttonPress);
 
 function buttonPress() {
   $("#gif-section").empty();
@@ -37,17 +35,12 @@ function buttonPress() {
 
       let personImage = $("<img>");
       personImage.attr("src", results[i].images.fixed_height.url);
-      personImage.attr(
-        "data-state",
-        "data-still",
-        results[i].images.fixed_height_still.url
-      );
-      personImage.attr(
-        "data-state",
-        "data-animate",
-        results[i].images.fixed_height.url
-      );
+      personImage.attr("data-still", results[i].images.fixed_height_still.url);
+      personImage.attr("data-animate", results[i].images.fixed_height.url);
+      personImage.attr("data-state", "animate");
       personImage.attr("class", "gif");
+
+      personImage.on("click", gifController);
 
       gifDiv.prepend(p);
       gifDiv.prepend(personImage);
@@ -57,7 +50,7 @@ function buttonPress() {
   });
 }
 
-$(".gif").click(function() {
+function gifController() {
   let state = $(this).attr("data-state");
   console.log(state);
 
@@ -70,4 +63,4 @@ $(".gif").click(function() {
     $(this).attr("src", $(this).attr("data-animate"));
     $(this).attr("data-state", "animate");
   }
-});
+}
