@@ -18,32 +18,36 @@
     />
   </head>
   <style>
-    #buttons {
+    #oldbuttons {
       margin-top: 15px;
     }
+    button {
+      margin-left: 5px;
+    }
+
     p {
       font-family: "Josefin Sans", sans-serif;
       font-size: 12pt;
     }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Add an Animal or Person!</a>
+
+      <input class="form-control" type="text" placeholder="Add anything" />
       <button class="btn btn-dark" id="searchgifs" type="submit">
         Submit
       </button>
-
-      <input class="form-control" type="text" placeholder="Add anything" />
     </nav>
 
-    <div id="buttons">
-      <button class="btn btn-primary" data-person="cat">
+    <div id="oldbuttons">
+      <button class="btn btn-outline-primary" data-person="cat">
         Cat
       </button>
-      <button class="btn btn-primary" data-person="michael jackson">
+      <button class="btn btn-outline-primary" data-person="michael jackson">
         Michael Jackson
       </button>
-      <button class="btn btn-primary" data-person="lady gaga">
+      <button class="btn btn-outline-primary" data-person="lady gaga">
         Lady Gaga
       </button>
     </div>

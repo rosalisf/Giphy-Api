@@ -4,12 +4,18 @@ $("#searchgifs").on("click", function() {
 
   let newButton = $("<button>");
   newButton.prepend(input);
+  newButton.attr("class", "btn btn-outline-primary");
   newButton.attr("data-person", input);
+  newButton.attr("data-state", "animate");
 
-  newButton.attr("data-state");
+  $("#oldbuttons").append(newButton);
+
+  newButton.on("click", buttonPress);
 });
+$("button").on("click", buttonPress);
 
-$("button").on("click", function() {
+function buttonPress() {
+  $("#gif-section").empty();
   const person = $(this).attr("data-person");
   const queryURL =
     "https://api.giphy.com/v1/gifs/search?q=" +
@@ -31,6 +37,16 @@ $("button").on("click", function() {
 
       let personImage = $("<img>");
       personImage.attr("src", results[i].images.fixed_height.url);
+      personImage.attr(
+        "data-state",
+        "data-still",
+        results[i].images.fixed_height_still.url
+      );
+      personImage.attr(
+        "data-state",
+        "data-animate",
+        results[i].images.fixed_height.url
+      );
       personImage.attr("class", "gif");
 
       gifDiv.prepend(p);
@@ -39,19 +55,19 @@ $("button").on("click", function() {
       $("#gif-section").prepend(gifDiv);
     }
   });
-});
+}
 
 $(".gif").click(function() {
   let state = $(this).attr("data-state");
   console.log(state);
 
-  if (state === "still") {
-    $(this).attr("src", $(this).attr("data-animate"));
-    $(this).attr("data-state", "animate");
-  }
-
   if (state === "animate") {
     $(this).attr("src", $(this).attr("data-still"));
     $(this).attr("data-state", "still");
+  }
+
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
   }
 });
